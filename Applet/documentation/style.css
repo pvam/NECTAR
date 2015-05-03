@@ -1,0 +1,220 @@
+/*GLOBAL-------------------------------------------------------*/
+
+body {
+	background: #000;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 75%;
+	text-align: center; 
+	margin: 0;
+	color: #666;
+	}
+acronym { cursor: help; border-bottom: 1px dashed #999; }
+a { text-decoration: underline; color: #666;  }
+a:hover { text-decoration: none; color: #666; }
+
+/*CONTAINER-----------------------------------------------------*/
+
+#rap {
+	margin: 0 auto;
+	width: 740px;
+	background: #ddd;
+	border: 3px solid #fff;
+	padding: 0 5px;
+	text-align: left; 
+	}
+	
+/*HEADER--------------------------------------------------------*/
+
+#header {
+	background: #ddd;/* url(img/bascomp.gif) no-repeat 100% 0;*/
+	border-bottom: 3px solid #666;
+	padding: 28px 30px;
+	}	
+#header h1 { 	
+	margin: 0;
+	color: #000;
+	font-size: 2em;
+	font-weight: normal;
+	cursor: default;
+	}	
+#header h2 { 	
+	margin: 0;
+	color: #666;
+	font-size: 1.2em;
+	padding-left: 1px;
+	cursor: default;
+	}	
+#header h1 a {
+	color:#fff;
+	text-decoration:none;
+	}
+#header h1 a:hover {
+	text-decoration:underline;
+	color:#666;
+	}	
+	
+/*NAVIGATION-----------------------------------------------------*/
+
+#nav {
+	background: #ddd; 
+	border-bottom: 4px solid #666;
+	margin: 0; 
+	padding: 0;
+	height: 2.2em;
+	}
+#nav li {
+	list-style-type: none;
+	display: inline;
+	line-height: 20px;
+	}		
+#nav li a { 
+	text-decoration: none; 
+	color: #666;
+	background-color: #ddd;
+	border-right: 4px solid #666; 
+	border-bottom: 0;
+	padding: 3px 8px;
+	font-size: 1em;
+	float: left;
+	font-weight: bold;
+	}
+#nav li a:hover { background-color: #fff; color:#000; }
+
+/*SIDEBAR--------------------------------------------------------*/
+
+#sidebar {
+	float: left;
+	width: 175px;
+	position: relative;
+	line-height: 20px; 
+	word-spacing: 2px;	
+	}
+#sidebar div { background: #fff;}	
+#sidebar h3 { 
+	font-size: 1.1em;
+	font-family:Georgia, Times New Roman, Times, serif;
+	color: #49515C; 
+	margin: 0 10px 0 0; 
+	cursor: default;
+	}
+#sidebar div { 
+	padding: 1px 0 10px 0;  
+	padding: 10px;
+	}	
+#sidebar p { 
+	font-size: 0.9em;
+	font-family:Georgia, Times New Roman, Times, serif;
+	color: #49515C; 
+	}
+
+	
+/*SEARCH===============--------------------------*/
+
+#search {
+     /*background-color:#758791;*/
+	 font-family:Verdana, Arial, Helvetica, sans-serif;
+	 font-size:10px;
+	 color:#000;
+	 font-weight:bold;
+	/*text-align: right;
+	 padding: 2px;*/
+	 }
+.find {
+     background-color:#FFF;
+	 border:2px solid #ddd;
+	 }
+.tombol {
+	border:1px solid #ddd;
+	font-weight: bold;
+	font-size: 9px;
+	color: #000;
+	height: 20px;
+	margin-right:10px;
+	background-color: #ddd;
+	}
+
+/*CONTENT----------------------------------------------------*/
+
+#content {
+	float: left;
+	width: 550px;
+	position: relative;
+	margin-left: 15px;
+	line-height: 20px; 
+	text-align: justify; 
+	word-spacing: 2px;	
+	}	
+#content div { background: #fff;}	
+#content h3 { 
+	font-size: 1.3em; 
+	color: #49515C; 
+	margin: 0 10px 0 0; 
+	cursor: default;
+	}
+#content div { 
+	padding: 1px 0 10px 0;  
+	/*border-top: 1px solid #ddd; */
+  	padding: 10px;
+	}	
+
+/*MIDDLE----------------------------------------------------*/
+
+#middle_left {
+	float: left;
+	width: 250px;
+	position: relative;
+	margin-left: 25px;
+	line-height: 20px; 
+	text-align: left; 
+	word-spacing: 2px;	
+	}	
+#middle_left h3 { 
+	font-size: 1.3em; 
+	color: #49515C; 
+	margin: 5px 10px 0 0; 
+	cursor: default;
+	}
+#middle_left p { 
+	font-size: 0.9em; 
+	color: #49515C; 
+	cursor: default;
+	}
+#middle_right {
+	float: right;
+	width: 250px;
+	position: relative;
+	margin-right: 15px;
+	line-height: 20px; 
+	text-align: left; 
+	word-spacing: 2px;	
+	}	
+#middle_right h3 { 
+	font-size: 1.3em; 
+	color: #49515C; 
+	margin: 5px 10px 0 0; 
+	cursor: default;
+	}
+#middle_right p { 
+	font-size: 0.9em; 
+	color: #49515C; 
+	cursor: default;
+	}
+	
+/*FOOTER-------------------------------------------------------*/
+
+#line {
+	border-top: 4px solid #666;
+	clear:both;
+	}
+#footer {
+	background: #ddd;
+	text-align: center;	
+	color: #49515C; 
+	font-size: 0.8em;
+	padding: 10px;
+	line-height: 16px;
+	clear: both;
+	}
+#footer a { text-decoration: none; color: #49515C;  }
+#footer a:hover { text-decoration: underline; color: #000; }
+

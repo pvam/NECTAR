@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<!-- saved from url=(0040)http://getbootstrap.com/examples/cover/# -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="http://getbootstrap.com/favicon.ico">
+
+    <title>N E C T A R Homepage</title>
+
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+
+    <!-- Custom styles for this template -->
+<link href="http://getbootstrap.com/examples/cover/cover.css" rel="stylesheet">
+<link href="round.css" rel="stylesheet">
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"> </script>
+<style>
+select {
+color : black
+}
+</style>
+   <script>
+  function process() {
+      var e = document.getElementById("first");
+    var x = document.getElementById("second");
+      var value = e.options[e.selectedIndex].text;
+      //alert(value);
+      if(value =="Simple Search Method")
+       {
+        x.disabled = false;
+        removeOptions(x);
+        var arr= ["One","All"];
+        for(var i=0;i<arr.length;++i) {
+          var option = document.createElement("option");
+          option.text = arr[i];
+          x.add(option);
+      }
+       }
+      else if(value =="Mixed Integer Programming")
+       {
+        x.disabled = false;
+        removeOptions(x);
+        var arr= ["Formulation 1","Formulation 2","Formulation 3","Formulation 4"];
+        for(var i=0;i<arr.length;++i) {
+          var option = document.createElement("option");
+          option.text = arr[i];
+          x.add(option);
+      }
+       }
+      else {
+        removeOptions(x);
+        var option = document.createElement("option");
+      option.text = "Not applicable"
+      x.add(option);
+        x.disabled =true;
+      }
+  }
+  
+  function removeOptions(selectbox)
+  {
+      var i;
+      for(i=selectbox.options.length-1;i>=0;i--)
+      {
+          selectbox.remove(i);
+      }
+  }
+  </script>
+
+  </head>
+
+  <body>
+
+    <div class="site-wrapper">
+
+      <div class="site-wrapper-inner">
+
+        <div class="cover-container">
+
+          <div class="masthead clearfix">
+            <div class="inner">
+              <h3 class="masthead-brand">N E C T A R</h3>
+            </div>
+          </div>
+
+          <div align="left" style="" class="lead">
+            <h1 class="cover-heading">Normal Form Game - Choose an algorithm</h1>
+            <br> <br> <br>
+                <form action="Mapper.jsp" method="post" enctype="multipart/form-data">  
+                 <input type="hidden" value="Normal Form Game" name="typeOfGame"/>
+                  <select id="first" name ="first" onchange='process()'>
+                    <option>Select</option>
+<!--                     <option>Correlated Equilibrium</option> -->
+                    <option>Lemke-Howson</option>
+                    <option>Mangasarian Algorithm</option>
+<!--                     <option>Mixed Integer Programming</option> -->
+                    <option>Pure Nash Equilibrium</option>
+<!--                     <option>Simple Search Method</option> -->
+<!--                     <option>Two Person Zero-sum Game</option> -->
+                  </select>
+                  <select id="second" disabled>
+                  
+                 </select>
+
+                 <br> 
+             <div class="form-group">
+                  <br>
+                    <input type="file" id="filedid" name="fileid">                    
+                    <p class="help-block"> Add help to to choose the kind of file.</p>
+                    <br>
+              </div>
+                <input type="submit" class="btn btn-large btn-success"/>  
+            </form>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+</body></html>

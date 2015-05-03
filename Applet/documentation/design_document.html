@@ -1,0 +1,482 @@
+ <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>N E C T A R : Nash Equilibria CompuTAtion Resource</title>
+<link href="style.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+	<div id="rap">
+			<div id="header">
+				<h1>N E C T A R</h1>
+				<h2>Nash Equlibria CompuTAtion Resource</h2>
+			</div>
+			<!-- Navigation Start -->
+			<ul id="nav">
+				<li><a>Home</a></li>
+				<li><a id="faq" href="faq.html"> FAQ </a><li> 
+				<li><a>About Us</a></li>
+				<li><a>Download</a></li>
+				<li><a id="design_document" href="design_document.html">Design Document</a></li>
+			</ul>
+			<!-- Navigation Stop -->
+			
+			
+		<!-- content begin -->
+		<div id="content">
+			<div>
+			<h3>1. Introduction</h3>
+			<div>
+				<p> 
+					This report documents the software modeling, analysis, 
+					architecture, and design of NECTAR (Nash Equilibria 
+					CompuTAtion Resource), a software tool for computing the 
+					Nash equilibrium points of a given game with various 
+					algorithms. UML (Unified Modeling Language) has been used 
+					in NECTAR modeling.  The key features of NECTAR architecture 
+					and design are extensibility, reusability, robustness, and 
+					scalability. These features have been achieved through the 
+					use of best practices in software engineering such as 
+					design patterns. 
+ 				</p><p>
+					This report is organized as follows. Section 2 presents the 
+					requirements definition for NECTAR. Section 3 is devoted to 
+					object oriented analysis of NECTAR. In this section, the 
+					software requirements specification is presented first, 
+					followed by a use-case model. In Section 4, the discussion 
+					is centered on NECTAR architecture. In this section, class 
+					diagrams of various modules of NECTAR are provided. In 
+					Section 5, a typical sequence diagram is presented. The main 
+					emphasis in this section is on the use of the following 
+					design patterns: Factory Method, Abstract Factory, Singleton, 
+					Adapter, Facade, Mediator, and Command. 
+				</p>
+			</div>
+			
+			<h3>2. Requirements Definition</h3>
+			<div>
+				<p> In this section, we present a crisp requirements definition 
+					for NECTAR, starting with a goal.</p>
+				<p> 
+					<u><b>2.1. Goal </u></b> 
+					NECTAR, Nash Equilibriuam CompuTAtion Resource, is an open 
+					source software tool for computing the Nash equilibrium points 
+					of non-cooperative games.
+				</p><p> 
+					<u><b>2.2. Top Level Requirements Definition </u></b> <br> 
+					<ul>	
+					<li> Develop a software system that computes the Nash 
+					equilibrium points of non-cooperative games with various 
+					algorithms. </li> 
+					<li> The system should allow inputs in both extensive form 
+					and normal form representations. </li> 
+					<li> The system should provide a good graphical user 
+					interface to the end user. </li> 
+					<li> The system should design such that new algorithms 
+					can be ported easily into it. </li> 
+					</ul> 	
+					The above four top level requirements form the basis for the 
+					next phase of the process, namely requirements analysis and 
+					domain analysis. 
+				</p>
+			</div>
+			
+			<h3>3. Analysis of NECTAR</h3>
+			<div>
+			<p> 
+					Analysis is a process of identifying the conceptual items 
+					and properties necessary for a solution to be both correct 
+					and proper. Our approach partitions the analysis process 
+					into two phases: Requirements Analysis and Domain Analysis. 
+					During the requirements analysis, we reformulate and expand 
+					an informal set of requirements into a more formal description. 
+					This transformation is done gradually through use cases. Use 
+					cases offer a systematic and intuitive way to capture the 
+					functional requirements with particular focus on the value 
+					added to each individual user or to each external system. 
+					Use cases play a key role in driving the rest of the 
+					development work and that is the important reason for their 
+					acceptance in most approaches to modern software engineering. 
+					In Domain analysis, based on the set of use cases, domain 
+					classes are recognized and their relationships are captured.
+				</p>
+				<p>
+				 	<u><b>3.1. Software Requirements Specification </u></b> <br> 
+					We expect NECTAR to have the following stakeholders:
+					<ul> 
+						<li> End User(s) </li> 
+						<li> System </li>
+					</ul> 
+					The stakeholders' requirements are captured below: <br>
+					<u><b>3.1.1. End User </u></b> <br> 
+					<ul>
+					<li> User should be able to select the required algorithm and the game.</li>	
+					<li> User should be able to change the algorithm for a game </li>	
+					<li> User should be able to change the input game for an algorithm </li>	
+					<li> User should be able to stop the current running algorithm </li> 
+					<li> User should be able to store the results into file </li>	
+					</ul>
+					<u><b>3.1.2. System </u></b> <br>
+					<ul>
+					<li> System should be able to give guide lines to the end users 
+						 at the time of computation </li> 
+					<li> System should be able to provide the running time of an 
+						 algorithm computation</li>
+					<li> System should be able to adapt new algorithms easily </li>
+					<li> System should be able to adapt new input formats </li> 
+					<li> System should be able to adapt new linear programming 
+						 solvers for the purpose of solving a set of linear 
+						 equations.
+					</ul>
+				</P>
+				<p>
+					<u><b>3.2. Usecase Model </u></b> <br> 
+					A use case model describes what the system does for each 
+					type of user and provides the essential input for analysis, 
+					design, and testing.  It is a top-level view of the system 
+					and shows the actors, use cases, and their relationships.  
+					The actors are entities that interact with the system. The 
+					use cases are the complete functionalities as perceived by 
+					an actor.
+				</p>
+				<p> The following usecase diagram shows some of the key 
+					usecases of an end user</p>
+				<p>
+				<u><b>3.2.1. Usecase Diagram of an End User </u></b> <br> 
+				<center> 
+						<img 	src="figures/nectar_usecase.png"
+							  	width = "100%" 
+								title = "Figure 1 Usecase Diagram" >  
+						</img>
+						Figure 1 Usecase Diagram <br>
+				</center>
+				</p>
+			</div>	
+			
+			<h3>4. An architecture for NECTAR</h3>
+			<div>
+				<p> When building interactive applications as with other 
+					programs, modularity of the components gives enormous benefits. 
+					Isolating functional units from each other makes it easier 
+					for the application designer to understand and modify each 
+					unit, without having to know much about the other units. 
+				</p><p>
+				<center> 
+						<img 	src="figures/nectar_arch.JPG"
+							  	width = "100%" 
+								title = "Figure 2 NECTAR Architecture Diagram" >  
+						</img> 
+						Figure 2 NECTAR Architecture Diagram <br>
+				</center>
+				</p><p>
+
+					The NECTAR project is divided into modules logically and 
+					physically. The architecture diagram of NECTAR is shown in 
+					Figure 2. The following subsections describes about each module.
+				</p>
+				<u><b>4.1. Graphical User Interface Module </b></u>
+				<p>
+				<center> 
+						<img 	src="figures/nectar_gui.JPG"
+							  	width = "100%" 
+								title = "Figure 3 Graphical User Interface Module">  
+						</img> 
+						Figure 3 Graphical User Interface Module <br>
+				</center>
+				</p><p> 
+					The <i>Graphical User Interface (GUI)</i> module is shown in Figure 
+				3. The GUI module provides graphical interface to the end user. 
+				The objects in this module are organised effectively with the 
+				help of singleton, mediator and command design patterns which are
+				explained in the next section. Here, the mediator object 
+				controls the whole state of the GUI. The GUI module is aware of 
+				only the <i>Nectar</i> interface, it is not aware of any other 
+				modules as shown in the architecture diagram. Because of this 
+				architecture, the other modules can be changed or modified 
+				without affecting the GUI Module. 
+				</p>
+				<b><u>4.2. Nectar Module </u></B>
+				<p>
+				<center> 
+						<img 	src="figures/nectar_nectar.JPG"
+							  	width = "100%" 
+								title = "Figure 4 Nectar Module" >  
+						</img> 
+						Figure 4 Nectar Module<br>
+				</center>
+				</p><p>
+					The Nectar module is shown in Figure 4. The Nectar module 
+				is central to the whole system. It isolates the GUI module from 
+				other modules in order to get the flexibility and modularity. 
+				The GUI module interacts with this module only. This module 
+				interacts with the <i>preprocessing</i> module for  
+				generating the Game(domain) objects <i>i.e.</i> normal-form, 
+				extensive-form, sequence-form game representations and interacts 
+				with the <i>algorithms</i> module for computing the Nash 
+				equilibrium points for the given games. This is implemented with 
+				<i>facade</i> design pattern explained in the next section. 
+				</p>
+				<b><u>4.3. Games Module </u></b>
+				<p>
+				<center> 
+						<img 	src="figures/nectar_games.JPG"
+							  	width = "100%" 
+								title = "Figure 5 Games Module" >  
+						</img> 
+						Figure 5 Games Module<br>
+				</center>
+				</p><p>
+					The <i>Games</i> module is shown in Figure 5. This module can be
+					treated as <i>domain</i> because all the operations are 
+					performed on these objects. This module contains the 
+					objects which represents various forms of games like 
+					normal-form games, extensive-form games, and sequence-form 
+					games. This module provides the common interfaces to the 
+					concrete objects for modularity. This module is 
+					implemented with <i>factory method</i> design pattern. With the 
+					help of this design pattern, we can modify existing concrete 
+					objects or develop the new concrete objects without affecting  
+					of the other modules. The <i>factory method</i> design pattern 
+					will be explained in the next section.					
+				</p>
+				<u><b>4.4. Algorithms Module </b></u>
+				<p>
+				<center> 
+						<img 	src="figures/nectar_algorithms.JPG"
+							  	width = "100%" 
+								title = "Figure 6 Algorithms Module" >  
+						</img> 
+						Figure 6 Algorithms Module<br>
+				</center>
+				</p><p>	
+					The <i>Algorithms</i> module is shown in Figure 6. This 
+					module can be treated as business module. It contains 
+					various algorithms, are used to compute a sample Nash 
+					equilibrium, all Nash equilibrium, and correlated 
+					equilibrium points of the given games. This module interacts 
+					with <i>games</i> module for getting the utilities of the 
+					players and <i>lp-solver interface</i> module for solving 
+					the set of linear equations. This module is also implemented 
+					with <i>factory method</i> design pattern. This module provides a  
+					common interface to all the existing algorithms, due to 
+					this nature, new algorithms can be ported easily by 
+					implementing this common interface without affecting the 
+					other modules.
+				</p>
+				</p>
+				<u><b>4.5. Lp-solver Interface Module </b></u>
+				<p>
+				<p>
+					The <i>lp-solver interface</i> module provides the 
+					interface to any type of linear programming solver with the 
+					help of suitable adapters. Due to this nature, we can adapt 
+					any new linear programming solver without modifying the 
+					<i>algorithms</i> module. This module is implemented with 
+					<i>abstract factory</i> and <i>adapter</i> design patterns 
+					which are explained in the next section.
+				</p>
+			</div>
+			
+			<h3>5. Design of NECTAR</h3>
+			<div> 
+					<p>
+					<u><b>5.1. Sequence Diagram </b></u>	
+					</p>
+					<p>
+					A typical sequence diagram for computing a Nash equilibrium is 
+					shown in Figure 7. The user selects the type of an algorithm 
+					for computing Nash equilibrium and selects the file which 
+					contains the game data. This information is forwarded to <i>Nectar</i>. 
+					<i>Nectar</i> translates corresponding game data into standard <i>game</i>  
+					object and returns this <i>game</i> object to <i>Nectar</i>. Then <i>Nectar</i> 
+					instantiates required <i>algorithm</i> object and passes the <i>game</i>  
+					object to it. The <i>algorithm</i> object processes the <i>game</i>  
+					object, computes Nash equilibrium and returns the results to 
+					the <i>Nectar</i>. The <i>Nectar</i> module gives these results back to 
+					the <i>GUI</i> module. Then the <i>GUI</i> module displays these results 
+					to the end user.				
+				</P><p>
+				<center> 
+						<img 	src="figures/nectar_sequence.jpg"
+							  	width = "100%" 
+								title = "Figure 7 NECTAR Sequence Diagram" >  
+						</img> <br>
+						Figure 7 NECTAR Sequence Diagram <br>
+				</center>
+				</p>	
+				<p>	
+				<u><b>5.2. Design Patterns </b></u> 
+				</p>
+				<div>
+				<p>
+					We implemented the following design patterns for the 
+					NECTAR. 
+					<ul>
+					<li> Singleton </li> 
+					<li> Factory Method </li> 
+					<li> Abstract Factory </li>
+					<li> Adapter </li>
+					<li> Command </li>
+					<li> Mediator  </li>
+					<li> Facade </li> 
+					</ul>
+				</p>
+				<b><u> 5.2.1. Factory Method Design Pattern </u></b>
+				
+				<p>	The <i>BimatrixGame</i> object represents two-player 
+						game and <i>NPlayerGame</i> object represents n-player 
+						game in normal form. The abstract class for these two 
+						classes is the <i>NormalFormGame</i> as shown in Figure 
+						8. The Factory Method pattern has <i>GameFactory</i> 
+						object which generates <i>NormalFormGame</i> objects by 
+						taking information about the number of players. 
+						Depending upon the number of players it instantiates 
+						corresponding concrete <i>NormalFormGame</i> object and 
+						returns to the calling object. This calling object does 
+						not know the actual concrete object, it knows only 
+						the abstract class interface. By using this pattern, we can 
+						easily adapt new type of concrete form of <i>
+						NormalFormGame </i> classes without changing any other 
+						modules provided that the new concrete classes have 
+						same interface. 
+				</p><p>
+				<center> 
+						<img 	src="figures/nectar_factory.JPG"
+							  	width = "100%" 
+								title = "Figure 8 Factory Desigin Pattern" >  
+						</img> 
+						Figure 8 Factory Design Pattern <br>
+				</center>
+				</p><p>
+						Similarly, the <i>algorithms</i> module is also designed 
+						with factory method design pattern. Here the client, 
+						sends the information to <i>AlgorithmFactory</i> which 
+						dynamically instantiates the corresponding concrete 
+						algorithm. The client knows only general 
+						<i>Algorithm</i> interface, it does not know which 
+						concrete algorithm actually it is running.
+				</p><p>	
+				<u><b>5.2.2. Command and Mediator Design Patterns </b></u>
+				</p><p>
+						We are using Command and Mediator patterns in the GUI 
+						Module. In GUI, even for simple applications, the 
+						interactions among the visual controls are pretty complex. 
+						Each visual object needs to know about two or more other objects, 
+						leading to a quite tangled relationship. This problem is 
+						addressed by using the Mediator design pattern.
+					</p><p>
+						The display window contains many objects like <i> 
+						Buttons, Lists</i> and <i>MenuItems</i> etc.. When one 
+						object changes its state, it needs to change the states 
+						of some other objects. If the window contains many such 
+						objects, it is very difficult when we have to modify any 
+						one of these objects or to adapt a new object into this 
+						window. When Mediator pattern is used, each object knows 
+						only the Mediator object and registers with the Mediator 
+						object as shown in Figure 9. By the presence of this 
+						pattern, the communication complexity among these objects 
+						is translated into the single Mediator object. So, when 
+						any object changes its state, it intimates to the Mediator 
+						object, which in turn updates the other objects. 
+					</p><p>
+					<center> 
+						<img 	src="figures/nectar_command.png"
+							  	width = "100%" 
+								title = "Figure 9 Command and Mediator Design Patterns" >  
+						</img> 
+						Figure 9 Command and Mediator Design Patterns <br>
+					</center>
+					</p><p>
+						When the user selects any object on the window, the 
+						program receives an ActionEvent, which it must trap by 
+						subclassing, the actionPerformed event. When there are 
+						many objects, the actionPerformed code gets pretty 
+						unwieldy. This really seems a little inelegant. In such 
+						cases, Command pattern assures that every object receives 
+						its own commands directly. A Command 
+						object always has an <i>Execute()</i> method that is 
+						called when an action occurs on that object.
+					</p><p>
+						One important purpose of the Command pattern is to keep 
+						the program and user interface objects completely 
+						independent from the actions that they initiate. In other 
+						words, these program objects should be completely 
+						independent from each other and should not have to know how 
+						other objects work. The user interface receives a 
+						command and tells a Command object to carry out whatever 
+						duties it has been instructed to do. The UI does not 
+						need to know what tasks will be executed.
+					</p><p>
+						A combination of Command, Mediator and Memento patterns 
+						in GUI makes implementation very easy. Here the Memento 
+						object can be used to store the state information 
+						especially for <i>undo</i> operations.
+					<p> 					
+					<u><b>5.2.3. Singleton and Facade Design Patterns </b></u>
+					</p><p>
+						All the GUI components interacts with the Mediator 
+						object as described in the previous section. Here all 
+						GUI components must interact with single and same 
+						instance of the Mediator object. This can be achieved by the 
+						use of singleton design pattern. Here, the Mediator 
+						object is implemented with singleton design pattern as 
+						shown in Figure 10.
+					</p><p>
+					<center> 
+						<img 	src="figures/nectar_singleton.JPG"
+							  	width = "100%" 
+								title = "Figure 10 Singleton and Facade Design Patterns" >  
+						</img> 
+						Figure 10 Singleton and Facade Design Patterns <br>
+					</center>
+					</p><p>
+						The Nectar module acts like a Facade here. The GUI 
+						module knows only Nectar module and does not know the 
+						interfaces of other modules. Because of this loose 
+						coupling, we can change internal modules easily without 
+						affecting the GUI module. This can be achieved only with 
+						facade design pattern. Here, the Nectar object is 
+						implemented with facade design pattern as shown in 
+						Figure 10.
+					</p><p>
+					<u><b>5.2.4. Adapter and Abstract Factory Patterns</b></u>
+					</p><p>
+						Some of the algorithms which are implemented for 
+						computing Nash equilibria needs to solve a set of linear 
+						equations. This can be achieved by a linear programming 
+						solver. With the help of the Adapter pattern the end 
+						user can port any linear programming solver(Adaptee) 
+						with suitable Adaptors. Currently, we ported ILOG's CPLEX 
+						linear programming solver with cplex-adapters as shown in 
+						Figure 11. Here, we need a set of adapters for a
+						particular specified adaptee(solver) as shown in Figure 
+						11. This can be achieved by applying Abstract factory 
+						design pattern. With the help of Abstract factory design 
+						pattern we can port a specific solver with the set of 
+						related adapters. 
+					</p><p>
+					<center> 
+						<img 	src="figures/nectar_adapter.JPG"
+							  	width = "100%" 
+								title = "Figure 11 Adapter and Abstract Factory Design Patterns" >  
+						</img> 
+						Figure 11 Adapter and Abstract Factory Design Patterns <br>
+					</center>
+					</p>
+				</div>
+			</div>
+		</div>
+		</div>
+		<!-- stop Content -->
+					
+		<!-- Footer start -->
+		<div id="line"></div>
+		<div id="footer">
+			Copyright &copy; 2006 <a href="#">Company Name</a>. All Rights Reserved.
+			<br />Made By <a href="http://kodokhunt.blogsome.com">Kodokhunt</a>
+		</div>
+		<!-- Footer Stop -->
+	</div>
+	<!-- Rap Stop -->
+</body>
+</html>
